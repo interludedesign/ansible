@@ -1,0 +1,13 @@
+- hosts: localhost
+  vars:
+    personal: "{{ lookup('env', 'HOME') }}/Code"
+  tasks:
+    - include: tasks/brave.yml
+    - include: tasks/fzf.yml
+    - include: tasks/zsh.yml
+    - include: tasks/rbenv.yml
+    - include: tasks/dotfiles.yml
+    - include: tasks/personal-projects.yml
+    - include: tasks/nvim.yml
+    - include: tasks/sqlite.yml
+    - include: tasks/ruby.yml

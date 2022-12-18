@@ -1,0 +1,16 @@
+- name: Download Ruby
+  shell: "rbenv install 3.1.2"
+  tags:
+    - ruby
+- name: Set Ruby global version
+  shell: "rbenv global 3.1.2"
+  tags:
+    - ruby
+- name: Build shims
+  shell: "rbenv rehash"
+  tags:
+    - ruby
+- name: Install Rails
+  shell: "gem install rails"
+  tags:
+    - ruby

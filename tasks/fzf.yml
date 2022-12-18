@@ -1,0 +1,7 @@
+- name: Install FZF
+  git:
+    repo: 'https://github.com/junegunn/fzf.git'
+    dest: "{{ lookup('env', 'HOME') }}/.fzf"
+    version: master
+  tags:
+    - fzf

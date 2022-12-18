@@ -1,0 +1,6 @@
+- name: SQLite
+  become: true
+  apt:
+    name: 'sqlite3'
+  tags:
+    - sqlite

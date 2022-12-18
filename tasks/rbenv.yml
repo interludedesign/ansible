@@ -1,0 +1,7 @@
+- name: Download Rbenv from github
+  git:
+    repo: 'https://github.com/rbenv/rbenv.git'
+    dest: "{{ lookup('env', 'HOME') }}/.rbenv"
+    version: master
+  tags:
+    - rbenv

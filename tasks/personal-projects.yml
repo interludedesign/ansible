@@ -1,0 +1,12 @@
+- name: Install personal luautils
+  git:
+    repo: 'https://github.com/interludedesign/luautils'
+    dest: "{{ personal }}/nvim-plugins/luautils"
+  tags:
+    - personal-projects
+- name: Install personal azureutils
+  git:
+    repo: 'https://github.com/interludedesign/azureutils.nvim'
+    dest: "{{ personal }}/nvim-plugins/azureutils.nvim"
+  tags:
+    - personal-projects
