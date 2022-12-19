@@ -1,12 +1,18 @@
-- name: Install personal luautils
+- name: Clone luautils
   git:
     repo: 'https://github.com/interludedesign/luautils'
     dest: "{{ personal }}/nvim-plugins/luautils"
   tags:
     - personal-projects
-- name: Install personal azureutils
+- name: Clone azureutils
   git:
     repo: 'https://github.com/interludedesign/azureutils.nvim'
     dest: "{{ personal }}/nvim-plugins/azureutils.nvim"
+  tags:
+    - personal-projects
+- name: Clone MX
+  git:
+    repo: 'git@github.com:frimley-io/mx.git'
+    dest: "{{ sites }}/frimley/mx"
   tags:
     - personal-projects

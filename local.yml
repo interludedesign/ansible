@@ -3,6 +3,7 @@
     source_key: "./.ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     personal: "{{ lookup('env', 'HOME') }}/Code"
+    sites: "{{ lookup('env', 'HOME') }}/Sites"
   tasks:
     - include: tasks/ssh.yml
     - include: tasks/brave.yml
@@ -14,3 +15,7 @@
     - include: tasks/nvim.yml
     - include: tasks/sqlite.yml
     - include: tasks/ruby.yml
+    - include: tasks/tmux.yml
+    - include: tasks/postgres.yml
+    - include: tasks/rust.yml
+    - include: tasks/rg.yml

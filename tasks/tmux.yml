@@ -1,0 +1,10 @@
+- name: Install tmux
+  become: true
+  apt:
+    name: "tmux"
+  tags:
+    - tmux
+- name: Install tmuxinator
+  shell: "gem install tmuxinator && rbenv rehash"
+  tags:
+    - tmux

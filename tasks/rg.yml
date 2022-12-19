@@ -1,0 +1,4 @@
+- name: Install RipGrep
+  community.general.cargo:
+    name: ripgrep
+  tags: rg
