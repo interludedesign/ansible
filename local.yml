@@ -19,3 +19,4 @@
     - include: tasks/postgres.yml
     - include: tasks/rust.yml
     - include: tasks/rg.yml
+    - include: tasks/node.yml
