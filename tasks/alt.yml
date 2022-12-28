@@ -1,0 +1,14 @@
+- name: Download alt
+  git:
+    repo: 'https://github.com/uptech/alt'
+    dest: "/tmp/alt"
+    version: main
+  tags: alt
+
+- name: Build alt
+  shell: 'cd /tmp/alt && cargo build --release'
+  tags: alt
+
+- name: Move executable to PATH
+  shell: 'mkdir -p ~/bin; mv /tmp/alt/target/release/alt ~/bin/'
+  tags: alt
