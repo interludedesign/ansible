@@ -20,3 +20,10 @@
     name: postgresql-15
   tags:
     - postgres
+
+- name: Install Deps
+  become: true
+  apt:
+    name: libpq-dev
+  tags:
+    - postgres
