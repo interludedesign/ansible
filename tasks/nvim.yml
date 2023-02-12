@@ -17,6 +17,7 @@
 - name: Clone neovim
   git:
     repo: 'https://github.com/neovim/neovim.git'
+    version: "stable"
     dest: "{{ lookup('env', 'HOME') }}/neovim"
   tags:
     - nvim
