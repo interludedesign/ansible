@@ -21,3 +21,4 @@
     - include: tasks/rg.yml
     - include: tasks/node.yml
     - include: tasks/alt.yml
+    - include: tasks/conda.yml
