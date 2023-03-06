@@ -10,5 +10,8 @@
   tags: alt
 
 - name: Move executable to PATH
-  shell: 'mkdir -p ~/bin; mv /tmp/alt/target/release/alt ~/bin/'
+  copy:
+    src: /tmp/alt/target/release/alt
+    dest: ~/bin/
+    mode: 'u+x'
   tags: alt
