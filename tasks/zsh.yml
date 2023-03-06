@@ -16,3 +16,7 @@
   shell: chsh -s $(which zsh)
   tags:
     - zsh
+- name: Use zsh
+  shell: eval $(which zsh)
+  tags:
+    - zsh

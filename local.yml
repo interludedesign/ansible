@@ -5,6 +5,7 @@
     personal: "{{ lookup('env', 'HOME') }}/Code"
     sites: "{{ lookup('env', 'HOME') }}/Sites"
   tasks:
+    - include: tasks/core-setup.yml
     - include: tasks/ssh.yml
     - include: tasks/brave.yml
     - include: tasks/fzf.yml

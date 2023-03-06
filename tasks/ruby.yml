@@ -1,16 +1,49 @@
-- name: Download Ruby
-  shell: "rbenv install 3.1.2"
+- name: Install Ruby and dependencies
   tags:
     - ruby
-- name: Set Ruby global version
-  shell: "rbenv global 3.1.2"
-  tags:
-    - ruby
-- name: Build shims
-  shell: "rbenv rehash"
-  tags:
-    - ruby
-- name: Install Rails
-  shell: "gem install rails"
-  tags:
-    - ruby
+  block:
+    - name: Check if Ruby 3.2.1 is installed
+      command: "rbenv versions | grep '3.2.1'"
+      register: ruby_check
+      changed_when: false
+      failed_when: false
+
+    - name: Install Ruby system dependencies
+      become: true
+      apt:
+        pkg:
+          - autoconf
+          - bison
+          - patch
+          - build-essential
+          - rustc
+          - libssl-dev
+          - libyaml-dev
+          - libreadline6-dev
+          - zlib1g-dev
+          - libgmp-dev
+          - libncurses5-dev
+          - libffi-dev
+          - libgdbm6
+          - libgdbm-dev
+          - libdb-dev
+          - uuid-dev
+        state: latest
+        update_cache: true
+      when: ruby_check.rc == 0
+
+    - name: Download Ruby
+      shell: "rbenv install 3.2.1"
+      when: ruby_check.rc == 0
+
+    - name: Set Ruby global version
+      shell: "rbenv global 3.2.1"
+
+    - name: Build shims
+      shell: "rbenv rehash"
+
+    - name: Install Rails
+      shell: "gem install rails"
+
+    - name: Install Solargraph
+      shell: "gem install solargraph"

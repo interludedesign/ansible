@@ -1,0 +1,6 @@
+- name: Install xclip
+  become: true
+  apt:
+    name: ["xclip"]
+  tags:
+    - core

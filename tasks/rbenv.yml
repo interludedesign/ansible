@@ -1,7 +1,16 @@
 - name: Download Rbenv from github
   git:
-    repo: 'https://github.com/rbenv/rbenv.git'
+    repo: 'git@github.com:rbenv/rbenv.git'
     dest: "{{ lookup('env', 'HOME') }}/.rbenv"
     version: master
   tags:
     - rbenv
+- name: Temporarily load rbenv
+  tags:
+    - rbenv
+  shell: eval "$(~/.rbenv/bin/rbenv init - zsh)"
+- name: Install Ruby Build
+  tags: rbenv
+  git:
+    repo: 'git@github.com:rbenv/ruby-build.git'
+    dest: "{{ lookup('env', 'HOME') }}/.rbenv/plugins/ruby-build"
