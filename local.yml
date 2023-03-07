@@ -24,3 +24,4 @@
     - include: tasks/postgres.yml
     # - include: tasks/conda.yml
     - include: tasks/docker.yml
+    - include: tasks/i3.yml

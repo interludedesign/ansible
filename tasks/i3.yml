@@ -1,0 +1,13 @@
+- name: Install i3
+  become: true
+  tags: i3
+
+  block:
+  - name: Update APT Cache
+    apt:
+      update_cache: yes
+
+  - name: Install i3 Window Manager
+    apt:
+      name: i3
+      state: present
