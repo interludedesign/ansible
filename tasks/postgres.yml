@@ -1,29 +1,25 @@
-- name: Add an Apt signing key
-  become: true
-  ansible.builtin.apt_key:
-    url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
-    state: present
-  tags:
-    - postgres
+- name: Install PostgreSQL
+  become: yes
+  tags: postgres
+  block:
+    - name: Add PostgreSQL Apt Key
+      apt_key:
+        url: https://www.postgresql.org/media/keys/ACCC4CF8.asc
+        state: present
 
-- name: Add to apt sources
-  become: true
-  ansible.builtin.apt_repository:
-    repo: deb http://apt.postgresql.org/pub/repos/apt kinetic-pgdg main
-    state: present
-  tags:
-    - postgres
+    - name: Add PostgreSQL Repository
+      apt_repository:
+        repo: deb http://apt.postgresql.org/pub/repos/apt/ {{ ansible_distribution_release }}-pgdg main {{ ansible_distribution_release }}
+        state: present
 
-- name: "Install packages"
-  become: true
-  apt:
-    name: postgresql-15
-  tags:
-    - postgres
+    - name: Update APT Cache
+      apt:
+        update_cache: yes
 
-- name: Install Deps
-  become: true
-  apt:
-    name: libpq-dev
-  tags:
-    - postgres
+    - name: Install PostgreSQL and Related Packages
+      apt:
+        name:
+          - postgresql-14
+          - postgresql-contrib
+          - libpq-dev
+        state: present
