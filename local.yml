@@ -23,4 +23,4 @@
     - include: tasks/alt.yml
     - include: tasks/postgres.yml
     # - include: tasks/conda.yml
-    # - include: tasks/docker.yml
+    - include: tasks/docker.yml
